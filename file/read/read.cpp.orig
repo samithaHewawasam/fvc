@@ -10,35 +10,33 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-using namespace std;
+#include <vector>
+#include <array>
 
 class File
 {
-  string line[50][2];
-  string lineOne;
-  string lineTwo;
-  public:
-    void readFile(string firstFile, string secondFile) {
-        ifstream fileOne;
-        ifstream fileTwo;
+    std::array<std::vector<std::string>, 2> lines;
+    std::string tempLine; // <- make this one local in readFile
 
-        fileOne.open(firstFile);
-        fileTwo.open(secondFile);
-        int x=0;
-        int y=0;
-        while(getline(fileOne, lineOne)) {
-          line[x][0] = lineOne;
-          x++;
-        }
-        while(getline(fileTwo, lineTwo)) {
-          line[y][0] = lineTwo;
-          y++;
-        }
+public:
+    void setFile(std::string const& firstFile, std::string const& secondFile) {
+      std::ifstream fileOne(firstFile);
+      if (!fileOne) throw std::runtime_error("error opening first file");
 
-        for(int i=0; sizeof(line);i++){
-          cout<<line[i][0]<<endl;
-        }
+      std::ifstream fileTwo(secondFile);
+      if (!fileTwo) throw std::runtime_error("error opening second file");
     };
+
+    void readFile(){      
+      while(getline(fileOne, tempLine)) {
+        lines[0] = tempLine;
+    }
+      while(getline(fileTwo, tempLine)) {
+        lines[1] = tempLine;
+      }
+
+    }
+
 };
 
 int main(int argc, char *argv[]) {

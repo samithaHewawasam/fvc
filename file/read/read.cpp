@@ -19,17 +19,23 @@ class File
     std::string tempLine; // <- make this one local in readFile
 
 public:
-    void readFile(std::string const& firstFile, std::string const& secondFile) {
-      std::ifstream fileOne(firstFile);
-      if (!fileOne) throw std::runtime_error("error opening first file");
+    void setFile(std::string const& firstFile, std::string const& secondFile) {
+        std::ifstream fileOne(firstFile);
+        if (!fileOne) throw std::runtime_error("error opening first file");
 
-      std::ifstream fileTwo(secondFile);
-      if (!fileTwo) throw std::runtime_error("error opening second file");
+        std::ifstream fileTwo(secondFile);
+        if (!fileTwo) throw std::runtime_error("error opening second file");
+
+        while(getline(fileOne, tempLine)) {
+          std::cout<<tempLine<<std::endl;
+        }
+
 
     };
+
 };
 
 int main(int argc, char *argv[]) {
     File getFile;
-    getFile.readFile(argv[1], argv[2]);
+    getFile.setFile(argv[1], argv[2]);
 }
