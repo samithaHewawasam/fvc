@@ -11,30 +11,21 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <array>
 
 class File
 {
-    std::lines<std::vector<std::string>, 2>;
-    std::string lineOne;
-    std::string lineTwo;
+    std::array<std::vector<std::string>, 2> lines;
+    std::string tempLine; // <- make this one local in readFile
+
 public:
     void readFile(std::string const& firstFile, std::string const& secondFile) {
-      ifstream fileOne(firstFile);
+      std::ifstream fileOne(firstFile);
       if (!fileOne) throw std::runtime_error("error opening first file");
 
-      ifstream fileTwo(secondFile);
+      std::ifstream fileTwo(secondFile);
       if (!fileTwo) throw std::runtime_error("error opening second file");
 
-        while(getline(fileOne, lineOne)) {
-          lines[0].push_back(lineOne);
-        }
-        while(getline(fileTwo, lineTwo)) {
-          lines[1].push_back(lineTwo);
-        }
-
-        for(int i=0; 50; i++) {
-            cout<<lines[i][0]<<endl;
-        }
     };
 };
 
