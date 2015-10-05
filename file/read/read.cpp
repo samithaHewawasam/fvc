@@ -13,7 +13,8 @@
 
 class File
 {
-    std::string line[50][2];
+    const char *lines[];
+    std::vector<std::string> v(lines, std::end(lines));
     std::string lineOne;
     std::string lineTwo;
 public:
@@ -24,8 +25,6 @@ public:
       ifstream fileTwo(secondFile);
       if (!fileTwo) throw std::runtime_error("error opening second file");
 
-        fileOne.open(firstFile);
-        fileTwo.open(secondFile);
         int x=0;
         int y=0;
         while(getline(fileOne, lineOne)) {
