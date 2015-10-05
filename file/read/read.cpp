@@ -10,11 +10,11 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <vector>
 
 class File
 {
-    const char *lines[];
-    std::vector<std::string> v(lines, std::end(lines));
+    std::lines<std::vector<std::string>, 2>;
     std::string lineOne;
     std::string lineTwo;
 public:
@@ -25,19 +25,15 @@ public:
       ifstream fileTwo(secondFile);
       if (!fileTwo) throw std::runtime_error("error opening second file");
 
-        int x=0;
-        int y=0;
         while(getline(fileOne, lineOne)) {
-            line[x][0] = lineOne;
-            x++;
+          lines[0].push_back(lineOne);
         }
         while(getline(fileTwo, lineTwo)) {
-            line[y][1] = lineTwo;
-            y++;
+          lines[1].push_back(lineTwo);
         }
 
         for(int i=0; 50; i++) {
-            cout<<line[i][0]<<endl;
+            cout<<lines[i][0]<<endl;
         }
     };
 };
