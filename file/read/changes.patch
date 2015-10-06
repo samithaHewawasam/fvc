@@ -1,0 +1,18 @@
+10,20d9
+< left:0;
+< width:20%;
+< background-color:#5D5D5D;
+< padding: 10px;
+< height:100%;
+< }
+< 
+< .right {
+<     position: absolute;
+<     right: 0px;
+<     width: 79%;
+145c134,135
+< </html>
+\ No newline at end of file
+---
+> </html>
+> sdsdsdsd

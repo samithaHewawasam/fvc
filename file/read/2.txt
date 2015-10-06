@@ -1,1 +1,145 @@
-j,hlkjklhjl
+<html>
+
+<head>
+<style type="text/css">
+body{
+    margin: 0px;
+}
+.left{
+position:absolute;
+left:0;
+width:20%;
+background-color:#5D5D5D;
+padding: 10px;
+height:100%;
+}
+
+.right {
+    position: absolute;
+    right: 0px;
+    width: 79%;
+    background-color: #3D3D3D;
+    padding: 100px 0;
+    height: 100%;
+}
+
+.menu h4{
+text-align:center;
+}
+.menu ul {
+    list-style-type: none;
+    line-height: 30px;
+    font-size: 14px;
+    margin: 90px -15px;
+}
+.menu ul li a {
+    text-decoration: none;
+    color: #EFEFEF;
+    text-shadow: 1px 1px 0px #000;
+}
+.header{
+
+background-color:#000;
+height:60px;
+
+}
+.header h2 {
+    text-align: center;
+    color: #FFF;
+    text-shadow: 1px 1px 0px #000;
+    margin: 0;
+    padding: 15px;
+}
+
+.right p {
+    font-size: 34px;
+    word-wrap: break-word;
+    width: 550px;
+    text-align: center;
+    margin: 0 auto;
+position:relative;
+}
+
+.right h3 {
+    text-align: center;
+}
+
+.right span {
+    font-size: 80px;
+    color: #FFF;
+    position: absolute;
+}
+
+.right span:first-child {
+    left: -20px;
+    top: -20px;
+}
+
+.right span:nth-child(2) {
+    right: -7px;
+}
+.right h4{
+    font-size: 30px;
+    color: whitesmoke;
+    font-weight:bold;
+    text-shadow: 1px 2px #000;
+    text-align:center;
+}
+
+.right ul {
+    list-style-type: none;
+    line-height: 30px;
+    font-size: 22px;
+    text-align:center;
+}
+.right ul li a {
+    text-decoration: none;
+    color: #EFEFEF;
+    text-shadow: 1px 1px 0px #000;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class='containor'>
+<div class='header'>
+<h2> CURRICULUM VITAE </h2>
+</div>
+<div class='left'>
+<div class='menu'>
+
+<ul>
+<li><a href='1.html'>PERSONAL PREFERENCE PROFILE</a></li>
+<li><a href='2.html'>PROFESSIONAL QUALIFICATIONS</a></li>
+<li><a href='3.html'>COMPUTER LITERACY</a></li>
+<li><a href='4.html'>ACADEMIC QUALIFICATIONS</a></li>
+<li><a href='5.html'>EDUCATIONAL QUALIFICATIONS</a></li>
+<li><a href='6.html'>EXTRA CURRICULAR ACTIVITIES</a></li>
+<li><a href='7.html'>PERSONAL INFORMATION</a></li>
+<li><a href='8.html'>WORK EXPERIENCE</a></li>
+<li><a href='9.html'>NON RELATED REFEREES</a></li>
+</ul>
+
+</div>
+
+</div>
+<div class='right'>
+<h4>PERSONAL PREFERENCE PROFILE</h4>
+<p>
+<ul>
+<li>To work on team spirit and culture of companionship</li>
+<li>To work in a highly dynamic environment under the pressure</li>
+<li>To work in an innovative and creative environment</li>
+</ul>
+</p>
+</div>
+<div class='footer'></div>
+</div>
+
+</body>
+
+
+
+</html>

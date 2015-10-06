@@ -16,7 +16,7 @@
 class File
 {
     std::array<std::vector<std::string>, 2> lines;
-    std::string tempLine; // <- make this one local in readFile
+    std::string tempLine, tempLine2;
 
 public:
     void setFile(std::string const& firstFile, std::string const& secondFile) {
@@ -25,12 +25,13 @@ public:
 
         std::ifstream fileTwo(secondFile);
         if (!fileTwo) throw std::runtime_error("error opening second file");
-
         while(getline(fileOne, tempLine)) {
-          std::cout<<tempLine<<std::endl;
+            lines.at(0).push_back(tempLine);
         }
 
-
+        for (auto const& v : lines) for (auto const& str : v) {
+                std::cout << str;
+            }
     };
 
 };
