@@ -1,16 +1,24 @@
-#include <boost/filesystem.hpp>
-#include <boost/range/iterator_range.hpp>
+#include <string>
 #include <iostream>
+#include <fstream>
+#include <boost/filesystem.hpp>
+#include <vector>
 
+using namespace std;
 using namespace boost::filesystem;
 
-int main(int argc, char *argv[]) {
-    path p(argc>1? argv[1] : ".");
+vector<string> files;
+vector<string> directories;
 
-    if(is_directory(p)) {
-        std::cout << p << " is a directory containing:\n";
+int main()
+{
+	for ( boost::filesystem::recursive_directory_iterator end, dir("."); dir != end; ++dir ) {
 
-        for(auto& entry : boost::make_iterator_range(directory_iterator(p), {}))
-            std::cout << entry << "\n";
-    }
+		if(is_directory(*dir)){	
+		       cout << "D " << *dir << endl;                                    	
+		}
+		else if(is_regular_file(*dir)){	
+		       cout << "F " << *dir << endl;                                    	
+		}
+	}
 }
