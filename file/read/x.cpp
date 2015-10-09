@@ -1,13 +1,16 @@
-#include <boost/lambda/lambda.hpp>
+#include <boost/filesystem.hpp>
+#include <boost/range/iterator_range.hpp>
 #include <iostream>
-#include <iterator>
-#include <algorithm>
 
-int main()
-{
-    using namespace boost::lambda;
-    typedef std::istream_iterator<int> in;
+using namespace boost::filesystem;
 
-    std::for_each(
-        in(std::cin), in(), std::cout << (_1 * 3) << " " );
+int main(int argc, char *argv[]) {
+    path p(argc>1? argv[1] : ".");
+
+    if(is_directory(p)) {
+        std::cout << p << " is a directory containing:\n";
+
+        for(auto& entry : boost::make_iterator_range(directory_iterator(p), {}))
+            std::cout << entry << "\n";
+    }
 }

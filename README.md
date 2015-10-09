@@ -30,3 +30,13 @@ $ ./b2 install
 will leave Boost binaries in the lib/ subdirectory of your installation prefix. You will also find a copy of the Boost headers in the include/ subdirectory of the installation prefix, so you can henceforth use that directory as an #include path in place of the Boost root directory.
 
 
+Compile
+
+```
+
+g++ -std=c++11 -Os -Wall -pedantic x.cpp -lboost_system -lboost_filesystem
+
+
+```
+
+
