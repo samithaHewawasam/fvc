@@ -3,22 +3,44 @@
 #include <fstream>
 #include <boost/filesystem.hpp>
 #include <vector>
+#include <typeinfo>
 
 using namespace std;
 using namespace boost::filesystem;
 
-vector<string> files;
-vector<string> directories;
+class FileFactory {
 
-int main()
-{
-	for ( boost::filesystem::recursive_directory_iterator end, dir("."); dir != end; ++dir ) {
+public:
+    void setFile(string name, string path);
+    FileFactory();
 
-		if(is_directory(*dir)){	
-		       cout << "D " << *dir << endl;                                    	
-		}
-		else if(is_regular_file(*dir)){	
-		       cout << "F " << *dir << endl;                                    	
-		}
-	}
+private:
+    string name;
+    string path;
+
+
+};
+
+FileFactory::FileFactory(void) {
+
+}
+
+void FileFactory::setFile(string name, string path) {
+
+    name = name;
+    path = path;
+
+}
+
+
+int main() {
+
+    FileFactory file;
+
+    for ( boost::filesystem::recursive_directory_iterator end, dir("."); dir != end; ++dir ) {
+
+
+        file.setFile(dir->path().filename(), "fsf");
+
+    }
 }
