@@ -15,6 +15,9 @@ public:
 private:
     string name;
     string path;
+    
+    
+
 };
 
 FileFactory::FileFactory(void) {
@@ -25,7 +28,17 @@ void FileFactory::setFile(string name, string path) {
     name = name;
     path = path;
     
-    cout << name <<endl;
+    string line;
+    
+    ifstream getFile(name);
+    
+   while(getline(getFile, line)) {
+         
+	cout << line << endl;
+
+   }
+
+    
 }
 
 
