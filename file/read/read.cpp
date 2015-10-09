@@ -29,9 +29,7 @@ public:
             lines.at(0).push_back(tempLine);
         }
 
-        for (auto const& v : lines) for (auto const& str : v) {
-                std::cout << str;
-            }
+        std::cout << lines.at(0).size();
     };
 
 };
