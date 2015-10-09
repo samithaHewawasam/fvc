@@ -10,8 +10,11 @@ sudo apt-get install libboost-all-dev
 
 Issue the following commands in the shell (don't type $; that represents the shell's prompt):
 
+```sh
 $ cd path/to/boost_1_59_0
 $ ./bootstrap.sh --help
+
+```
 
 Select your configuration options and invoke ./bootstrap.sh again without the --help option. Unless you have write permission in your system's /usr/local/ directory, you'll probably want to at least use
 
