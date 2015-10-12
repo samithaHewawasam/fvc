@@ -2,25 +2,25 @@
 +<?php
 +
 +
-+class somthing(){
+-class somthing(){
 +
 + public some(){
 + 
 + 
-- }
++ }
 +
-- public some1(){
-- 
-- 
-- }
++ public some1(){
++ 
++ 
++ }
 +
 - public some2(){
-- 
-- 
-+a
-+b
-+c
-+?>
++ 
++ 
++ }
++
++
++}
 +
 +
 -someting1 = new someting();
@@ -30,4 +30,4 @@
 +
 +
 +
--?>
++?>

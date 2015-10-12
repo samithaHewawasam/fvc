@@ -2,11 +2,25 @@
 <?php
 
 
-class somthing(){
+
 
  public some(){
  
  
+ }
+
+ public some1(){
+ 
+ 
+ }
+
+
+ 
+ 
+ }
+
+
+}
 
 
 
@@ -16,8 +30,4 @@ class somthing(){
 
 
 
-
-a
-b
-c
 ?>

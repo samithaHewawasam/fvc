@@ -2,7 +2,7 @@
 <?php
 
 
-class somthing(){
+
 
  public some(){
  
@@ -14,7 +14,7 @@ class somthing(){
  
  }
 
- public some2(){
+
  
  
  }
@@ -23,7 +23,7 @@ class somthing(){
 }
 
 
-someting1 = new someting();
+
 
 
 
