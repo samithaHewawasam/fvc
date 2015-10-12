@@ -1,0 +1,33 @@
+
+<?php
+
+
+class somthing(){
+
+ public some(){
+ 
+ 
+ }
+
+ public some1(){
+ 
+ 
+ }
+
+ public some2(){
+ 
+ 
+ }
+
+
+}
+
+
+someting1 = new someting();
+
+
+
+
+
+
+?>

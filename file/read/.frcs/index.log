@@ -10,15 +10,3 @@
 0 R ./a/x x
 0 R ./x.cpp x.cpp
 0 R ./c.cpp c.cpp
-12 R ./a.out a.out
-12 D ./Untitled Folder Untitled Folder
-12 R ./init.cpp init.cpp
-12 D ./b b
-12 R ./b/x x
-12 R ./add.cpp add.cpp
-12 D ./.frcs .frcs
-12 R ./cla.cpp cla.cpp
-12 D ./a a
-12 R ./a/x x
-12 R ./x.cpp x.cpp
-12 R ./c.cpp c.cpp
