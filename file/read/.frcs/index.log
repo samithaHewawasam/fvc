@@ -1,0 +1,12 @@
+R ./a.out a.out
+R ./init.cpp init.cpp
+D ./b b
+R ./b/x x
+R ./add.cpp add.cpp
+D ./.frcs .frcs
+R ./cla.cpp cla.cpp
+D ./a a
+R ./a/x x
+R ./x.cpp x.cpp
+R ./f.cpp f.cpp
+R ./c.cpp c.cpp
