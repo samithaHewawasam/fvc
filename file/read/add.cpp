@@ -55,7 +55,11 @@ int createCloneObject(string name) {
     {
         if(!boost::filesystem::exists(".frcs/objects/" + name)) {
             boost::filesystem::path dir(".frcs/objects/" + name);
-            boost::filesystem::create_directory(dir);           
+            boost::filesystem::create_directory(dir);
+            
+		ofstream objectLog;
+		objectLog.open(".frcs/object.log", ios_base::app); // ios_base:app flag use to append text to file
+                objectLog << name;      
         }       
 
     }
@@ -93,7 +97,7 @@ class FileFactory {
 public:
     void setFile(string name, string path, int i);
     string readFile(string name);
-    void writeToIndexlog(string name, string path, string isFile);
+    void writeToIndexlog(string name, string path, string isFile, int cloneObj);
     FileFactory();
 private:
     string name;
@@ -114,7 +118,7 @@ void FileFactory::setFile(string name, string path, int i) {
     }
 }
 
-void FileFactory::writeToIndexlog(string name, string path, string isFile) {
+void FileFactory::writeToIndexlog(string name, string path, string isFile, int cloneObj) {
 
 
     try
@@ -122,7 +126,7 @@ void FileFactory::writeToIndexlog(string name, string path, string isFile) {
         ofstream indexLog;
         indexLog.open(".frcs/index.log", ios_base::app); // ios_base:app flag use to append text to file
 
-        indexLog << isFile << " " <<  path << " " << name << endl;       
+        indexLog << cloneObj << " " << isFile << " " <<  path << " " << name << endl;            
         
     }
     catch (filesystem_error &e)
@@ -144,7 +148,7 @@ int main() {
          * Remove .frcs folder and a.out while directory iteratting
          */
 
-        if(dir->path().filename().native() == ".frcs" or dir->path().filename().native() == "a.out") {
+        if(dir->path().filename().native() == ".frcs") {
 
             dir.no_push();
 
@@ -175,6 +179,11 @@ int main() {
         if(is_regular_file(*dir)){ 
             isFile = 'R';
             inFile = file_get_contents(dir->path().native());
+            
+        // Clonning files while adding to index.log 
+        
+        createCloneOfIndexFiles(currentCloneObject, dir->path().filename().native(), inFile);
+        
         }
         else if(is_directory(*dir))
             isFile = 'D';
@@ -183,11 +192,9 @@ int main() {
          * Let's lookup for the index. use an Id to ref file structure.
          */
 
-        file.writeToIndexlog(dir->path().filename().native(), dir->path().native(), isFile);
+        file.writeToIndexlog(dir->path().filename().native(), dir->path().native(), isFile, currentCloneObject);
         
-        // Clonning files while adding to index.log 
-        
-        createCloneOfIndexFiles(currentCloneObject, dir->path().filename().native(), inFile);
+
 
     }
 }

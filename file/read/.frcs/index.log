@@ -1,12 +1,24 @@
-R ./a.out a.out
-R ./init.cpp init.cpp
-D ./b b
-R ./b/x x
-R ./add.cpp add.cpp
-D ./.frcs .frcs
-R ./cla.cpp cla.cpp
-D ./a a
-R ./a/x x
-R ./x.cpp x.cpp
-R ./f.cpp f.cpp
-R ./c.cpp c.cpp
+0 R ./a.out a.out
+0 D ./Untitled Folder Untitled Folder
+0 R ./init.cpp init.cpp
+0 D ./b b
+0 R ./b/x x
+0 R ./add.cpp add.cpp
+0 D ./.frcs .frcs
+0 R ./cla.cpp cla.cpp
+0 D ./a a
+0 R ./a/x x
+0 R ./x.cpp x.cpp
+0 R ./c.cpp c.cpp
+12 R ./a.out a.out
+12 D ./Untitled Folder Untitled Folder
+12 R ./init.cpp init.cpp
+12 D ./b b
+12 R ./b/x x
+12 R ./add.cpp add.cpp
+12 D ./.frcs .frcs
+12 R ./cla.cpp cla.cpp
+12 D ./a a
+12 R ./a/x x
+12 R ./x.cpp x.cpp
+12 R ./c.cpp c.cpp
