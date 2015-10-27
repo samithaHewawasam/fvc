@@ -4,38 +4,36 @@
 
 using namespace std;
 
-
 string returnSingleFromFileLine(string file, int num) {
 
     ifstream getFile(file.c_str());
-    string line1;
-    int index = 0;
-    while (getline(getFile, line1)) {
-        index++;
+    string line;
+    int index = 1;
+    while (getline(getFile, line)) {
         if(num == index)
-            break;
-
+            break;            
+        index++;
     }
-
-    return line1;
+    
+    return line;
 
 }
 
 int readlastLine(string file) {
 
-    int index3 = 0;
+    int index = 1;
     ifstream indexLog(file.c_str());
     string line;
     while (getline(indexLog, line)) {
-        index3++;
         if (indexLog.eof())
             break;
+       index++;
 
     }
-    return index3;
+    return index;
 }
 
-void fileRead() {
+void check() {
 
     int getTheLineNumber = 0;
     if(readlastLine("a.txt") > readlastLine("b.txt"))
@@ -49,11 +47,11 @@ void fileRead() {
     // b.txt = previous file in the corresponding object
     // a.txt = actual file in working directory
 
-    for(int i = 1; i <= getTheLineNumber; i++) {
+    for(int i = 1; i < getTheLineNumber; i++) {
 
         if(returnSingleFromFileLine("a.txt", i) == returnSingleFromFileLine("b.txt", i)) {
 
-            patch << "+" << returnSingleFromFileLine("b.txt", i) << endl;
+            patch << "" << endl;
 
         } else if(returnSingleFromFileLine("a.txt", i) != returnSingleFromFileLine("b.txt", i)) {
 
@@ -79,7 +77,7 @@ void fileRead() {
 
 int main() {
 
-    fileRead();
+    check();
 
 }
 

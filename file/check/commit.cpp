@@ -1,66 +1,78 @@
 #include <string>
 #include <iostream>
 #include <fstream>
-#include <typeinfo>
+#include <sstream>
 
 using namespace std;
 
 string returnSingleFromFileLine(string file, int num) {
 
     ifstream getFile(file.c_str());
-    string line1;
-    int index = 0;
-    while (getline(getFile, line1)) {
-        index++;
+    string line;
+    int index = 1;
+    while (getline(getFile, line)) {
         if(num == index)
             break;
-
+        index++;
     }
-    
-    return line1;
+
+    return line;
 
 }
 
 int readlastLine(string file) {
 
-    int index3 = 0;
+    int index = 1;
     ifstream indexLog(file.c_str());
     string line;
     while (getline(indexLog, line)) {
-        index3++;
         if (indexLog.eof())
             break;
+        index++;
 
     }
-    return index3;
+    return index;
 }
 
 void commit() {
+    
+	fstream commits("b.txt" , fstream::in | fstream::out);
 
+	for (int i = 1; i < readlastLine("a.patch"); i++)
+	{
+	
+	    std::stringstream ss;
 
-    ofstream commit;
-    commit.open("b.txt");
+	    std::string line = returnSingleFromFileLine("a.patch", i);
+	    
+		if (!line.empty()) 
+		{
+			if (line.at(0) == '+') 
+			{
+				ss.str(line.substr(1));
+			}
+			else if (line.at(0) == '-')
+			{
+				ss.str("");
+			}
+		}
+		else 
+		{
+			ss.str(returnSingleFromFileLine("b.txt", i));
+		}
+		
+		cout << ss.str() << endl;
+		ss.clear();
 
-    for(int i = 1; i <= readlastLine("a.patch"); i++) {
-
-	if(returnSingleFromFileLine("a.patch", i).at(0) == '+'){
-	
-		commit << returnSingleFromFileLine("a.patch", i).substr(1) << endl;
-	
-	}else if(returnSingleFromFileLine("a.patch", i).at(0) == '-'){
-	
-		commit << "" << endl;
-	
+		
 	}
 	
-	
-    }
 }
 
 
 
-int main(){
+int main() {
 
- commit();
+    commit();
 
 }
