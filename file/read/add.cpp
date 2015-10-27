@@ -3,11 +3,7 @@
 #include <fstream>
 #include <sstream>
 #include <boost/filesystem.hpp>
-#include <vector>
-#include <typeinfo>
-#include <bitset>
-#include <boost/functional/hash.hpp>
-#include <time.h>
+
 
 using namespace std;
 using namespace boost::filesystem;
@@ -19,13 +15,13 @@ using namespace boost::filesystem;
 
 int readlastLine() {
 
-    int index = 0;
-    ifstream indexLog(".frcs/index.log");
+    int index = 1;
+    ifstream indexLog(".fvc/index.log");
     string line;
     while (getline(indexLog, line)) {
-        index++;
         if (indexLog.eof())
             break;
+        index++;
 
     }
     return index;
@@ -46,19 +42,19 @@ string file_get_contents (string path )
 
 
 /*
- * Create clone objects in the ./.frcs/objects[@]/ if not exits
+ * Create clone objects in the ./.fvc/objects[@]/ if not exits
  */
 
 int createCloneObject(string name) {
 
     try
     {
-        if(!boost::filesystem::exists(".frcs/objects/" + name)) {
-            boost::filesystem::path dir(".frcs/objects/" + name);
+        if(!boost::filesystem::exists(".fvc/objects/" + name)) {
+            boost::filesystem::path dir(".fvc/objects/" + name);
             boost::filesystem::create_directory(dir);
             
 		ofstream objectLog;
-		objectLog.open(".frcs/object.log", ios_base::app); // ios_base:app flag use to append text to file
+		objectLog.open(".fvc/object.log", ios_base::app); // ios_base:app flag use to append text to file
                 objectLog << name;      
         }       
 
@@ -74,16 +70,16 @@ int createCloneObject(string name) {
 }
 
 /*
- * Create clone of files in the ./.frcs/objects[@]/[@] if not exits
+ * Create clone of files in the ./.fvc/objects[@]/[@] if not exits
  */
  
 void createCloneOfIndexFiles(int objectFile, string cloneFile, string inFile){
 
          ofstream index;
-         index.open(".frcs/objects/"+to_string(objectFile)+"/"+to_string(readlastLine()), ios_base::app);
+         index.open(".fvc/objects/"+to_string(objectFile)+"/"+to_string(readlastLine()), ios_base::app);
          index << inFile;
          
-         if(!boost::filesystem::exists(".frcs/objects/"+to_string(objectFile)+"c/"+to_string(readlastLine()))) {
+         if(!boost::filesystem::exists(".fvc/objects/"+to_string(objectFile)+"c/"+to_string(readlastLine()))) {
          
          
          
@@ -111,7 +107,7 @@ void FileFactory::setFile(string name, string path, int i) {
     name = name;
     path = path;
 
-    if(!boost::filesystem::exists(".frcs/objects/" + name)) {
+    if(!boost::filesystem::exists(".fvc/objects/" + name)) {
 
         cout << "file found at" << path << endl;
 
@@ -124,7 +120,7 @@ void FileFactory::writeToIndexlog(string name, string path, string isFile, int c
     try
     {
         ofstream indexLog;
-        indexLog.open(".frcs/index.log", ios_base::app); // ios_base:app flag use to append text to file
+        indexLog.open(".fvc/index.log", ios_base::app); // ios_base:app flag use to append text to file
 
         indexLog << cloneObj << " " << isFile << " " <<  path << " " << name << endl;            
         
@@ -145,10 +141,10 @@ int main() {
     for ( boost::filesystem::recursive_directory_iterator end, dir("."); dir != end; ++dir ) {
 
         /*
-         * Remove .frcs folder and a.out while directory iteratting
+         * Remove .fvc folder and a.out while directory iteratting
          */
 
-        if(dir->path().filename().native() == ".frcs") {
+        if(dir->path().filename().native() == ".fvc") {
 
             dir.no_push();
 

@@ -36,7 +36,7 @@ int readlastLine(string file) {
 
 void commit() {
     
-	fstream commits("b.txt" , fstream::in | fstream::out);
+	fstream commits("t.txt" , fstream::in | fstream::out);
 
 	for (int i = 1; i < readlastLine("a.patch"); i++)
 	{

@@ -21,16 +21,16 @@ private:
 
 FileFactory::FileFactory(void) {
 
-	boost::filesystem::path dir_frcs(".frcs");
-	boost::filesystem::create_directory(dir_frcs); 
+	boost::filesystem::path dir_fvc(".fvc");
+	boost::filesystem::create_directory(dir_fvc); 
 	
-	boost::filesystem::path dir_frcs_objects(".frcs/objects");
-	boost::filesystem::create_directory(dir_frcs_objects); 
+	boost::filesystem::path dir_frcs_objects(".fvc/objects");
+	boost::filesystem::create_directory(dir_fvc_objects); 
 	
-	ofstream commit(".frcs/commit.log");
-	ofstream index(".frcs/index.log");
+	ofstream commit(".fvc/commit.log");
+	ofstream index(".fvc/index.log");
 }
 
 int main() {
-    FileFactory frcs;
+    FileFactory fvc;
 }
